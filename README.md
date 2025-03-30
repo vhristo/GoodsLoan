@@ -4,6 +4,8 @@
 ### Description
 
 This is a simple goods loan system. It follows the [Clean Architecture pattern](https://learn.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures#clean-architecture).
+
+
 The system has two main entities: **Loan** and **Invoice**.
 A loan can have multiple invoices. The system has the following features:
 
@@ -26,3 +28,15 @@ A loan can have multiple invoices. The system has the following features:
 |Id|INTEGER|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 |Amount|NUMERIC|
 |LoanId|NUMERIC||||:heavy_check_mark:|
+
+### How to run
+
+1. Build the solution
+1. Start the GoodsLoan.Api project
+1. Open `https://localhost:7074/swagger/index.html`
+
+There are two endpoints:
+
+```GET: /api/loans```
+
+```GET: /api/loans/summary```

@@ -68,7 +68,9 @@ public class LoanRepository : ILoanRepository
                         COUNT(*) AS Count,
                         SUM(Amount) AS TotalAmount
                       FROM Loan
+                      WHERE Status = 0 OR Status = 1
                       GROUP BY Status;";
+
         return await db.QueryAsync<LoanStatusSummaryDto>(query);
     }
 }

@@ -2,7 +2,7 @@
 
 public enum LoanStatus
 {
-    Paid,
-    AwaitPayment,
-    Created,
+    Paid = 0,
+    AwaitPayment = 1,
+    Created = 2,
 }

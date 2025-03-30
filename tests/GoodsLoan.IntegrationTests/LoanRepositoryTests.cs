@@ -28,7 +28,6 @@ public class LoanRepositoryTests : IDisposable
     {
         // Arrange
         using var command = _persistentConnection.CreateCommand();
-
         command.CommandText = @"
             INSERT INTO Loan (Number, FirstName, LastName, Amount, Status) VALUES ('L1', 'F1', 'L1', 1000, 0);
             INSERT INTO Loan (Number, FirstName, LastName, Amount, Status) VALUES ('L2', 'F2', 'L2', 2000, 1);
@@ -46,7 +45,7 @@ public class LoanRepositoryTests : IDisposable
 
     public void Dispose()
     {
-        _persistentConnection.Dispose();
+        //_persistentConnection.Dispose();
     }
 
     private void InitializeSchema(SqliteConnection connection)
@@ -71,7 +70,10 @@ public class LoanRepositoryTests : IDisposable
             LoanId INTEGER NOT NULL,
             FOREIGN KEY (LoanId) REFERENCES Loan(Id) ON DELETE CASCADE
         );
-    ";
+
+        INSERT INTO Loan (Number, FirstName, LastName, Amount, Status) VALUES ('L1', 'F1', 'L1', 1000, 0);
+        INSERT INTO Loan (Number, FirstName, LastName, Amount, Status) VALUES ('L2', 'F2', 'L2', 2000, 1);
+        ";
 
         command.ExecuteNonQuery();
     }

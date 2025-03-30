@@ -4,8 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GoodsLoan.Api.Controllers;
 
-[Route("api")]
 [ApiController]
+[Route("api")]
+[Produces("application/json")]
 public class LoansController : ControllerBase
 {
     private readonly ILoansService _loansService;
@@ -15,6 +16,11 @@ public class LoansController : ControllerBase
         _loansService = loanService;
     }
 
+    /// <summary>
+    /// Get all loans
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     [HttpGet("loans")]
     [ProducesResponseType<IEnumerable<LoanDto>>(StatusCodes.Status200OK)]
     public async Task<IActionResult> Get(int id)
@@ -24,6 +30,10 @@ public class LoansController : ControllerBase
         return Ok(loans);
     }
 
+    /// <summary>
+    /// Get loan summary
+    /// </summary>
+    /// <returns></returns>
     [HttpGet("loans/summary")]
     [ProducesResponseType<IEnumerable<LoanStatusSummaryDto>>(StatusCodes.Status200OK)]
     public async Task<IActionResult> GetLoanSummary()
