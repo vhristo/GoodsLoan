@@ -1,0 +1,12 @@
+@GoodsLoan.Api_HostAddress = http://localhost:5062
+
+GET {{GoodsLoan.Api_HostAddress}}/api/loans/
+Accept: application/json
+
+###
+
+
+GET {{GoodsLoan.Api_HostAddress}}/api/loans/summary}}
+Accept: application/json
+
+###
